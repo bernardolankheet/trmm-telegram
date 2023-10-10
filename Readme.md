@@ -110,6 +110,7 @@ If you use User:
 If you use Groups:
 1. Add [Get ID bot](https://t.me/get_id_bot) in your chat group.
 2. Send /my_id to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
+3. Add your bot in this group.
 
 # Create API-Key Tactical
 
