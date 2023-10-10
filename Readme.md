@@ -47,11 +47,11 @@ The idea for this script arose due to the need to quickly visualize an [alert](h
 
 The script works by consulting the Tactical alerts API, where all alerts scheduled to appear on the dashboard (identified by a 'bell') will be sent via Telegram.
 
-![Alerts Dashboard](img-docs/rmm-alerts-bells.jpg)
+![Alerts Dashboard](https://github.com/bernardolankheet/trmm-telegram/assets/59538185/5bc4583a-c138-49c3-b52e-fcaac72e9f63)
 
 The script consumes the alerts endpoint 'https://api.tactical.com/alerts/', where alerts marked "Include snoozed", "Include resolved", 1 day time and all severitys are filtered.
 
-![Alerts Dashboard](img-docs/rmm-alerts.jpg)
+![Alerts Dashboard](https://github.com/bernardolankheet/trmm-telegram/assets/59538185/4f72bd33-c062-4305-a931-53173eb93e9d)
 
 Line 54 on telegram-trmm.py.
 ```
@@ -121,7 +121,7 @@ If you use Groups:
 6. Enter an expiration period (not required);
 7. Copy the generated API Key. (this id you will use on alert_api_key parameter on configScrips.ini file)
 
-![Tactical API Token](img-docs/rmm-tapi-key.jpg)
+![Tactical API Token](https://github.com/bernardolankheet/trmm-telegram/assets/59538185/012d3d34-95bb-427b-b3c1-94bfddeb2dab)
 
 # Configure configScrips-ini
 
@@ -177,6 +177,7 @@ An easy way to select which alerts will be used for notification is to use Autom
 
 
 Settings > [Automation Manager](https://docs.tacticalrmm.com/functions/automation_policies/)
+
 
 ![Automation Manager](img-docs/rmm-alerts-policy-manager.jpg)
 
