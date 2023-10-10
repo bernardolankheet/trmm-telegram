@@ -1,6 +1,4 @@
-Simple integration for sending  [TacticalRMM](https://docs.tacticalrmm.com) alerts via Telegram.
-
-Autor: Bernardo Lankheet
+Simple integration for sending  [TacticalRMM](https://docs.tacticalrmm.com) alerts via Telegram. Bernardo Lankheet
 
 # Summary
 <ul>
