@@ -1,34 +1,3 @@
-# TRMM-TELEGRAM
-The idea for this script arose due to the need to quickly visualize an [alert](https://docs.tacticalrmm.com/functions/alerting/) and when it was recovered.
-
-The script works by consulting the Tactical alerts API, where all alerts scheduled to appear on the dashboard (identified by a 'bell') will be sent via Telegram.
-
-![Alerts Dashboard](img-docs/rmm-alerts-bells.jpg)
-
-The script consumes the alerts endpoint 'https://api.tactical.com/alerts/', where alerts marked "Include snoozed", "Include resolved", 1 day time and all severitys are filtered.
-
-![Alerts Dashboard](img-docs/rmm-alerts.jpg)
-
-Line 54 on telegram-trmm.py.
-```
-...
-    data = {
-        "resolvedFilter": True,
-        "snoozedFilter": True,
-        "timeFilter": 1,
-        "severityFilter": ["error", "warning", "info"]
-    }
-...
-```
-
-All configurations are carried out in the configScrips.ini file and logs are generated and stored in /var/log/trmm-telegram.
-
-This script will check for new alerts every 20 seconds (parameter updateinterval in the configScrips.ini file).
-
-File *sent_alerts.json* is used to control the IDs that are sent and already resolved, a type of database. Whenever an alert is generated in tactical, it is sent by Telegram and stored in 'sent', when this alert is resolved, the script arrives if this alert has already been sent, if it is still in sent, a recovery message is sent in telegram and it is moved to 'resolved' in sent_alerts.json
-
-For Housekeeping control, 100 alert IDs are stored in the *sent_alerts.json* file, this quantity can be configured in the 'max_alerts' parameter in configScrips.ini.
-
 # Summary
 <ul>
 	<li>
@@ -65,13 +34,48 @@ For Housekeeping control, 100 alert IDs are stored in the *sent_alerts.json* fil
 		<strong>
 			<a href=#configure-alert-dashboard>Configure Alert Dashboard</a>
 		</strong>
-	</li>   
+	</li>
+    <li>
+		<strong>
+			<a href=#telegram-message>Telegram Message</a>
+		</strong>
+	</li>       
 </ul>
 
+# TRMM-TELEGRAM
+The idea for this script arose due to the need to quickly visualize an [alert](https://docs.tacticalrmm.com/functions/alerting/) and when it was recovered.
+
+The script works by consulting the Tactical alerts API, where all alerts scheduled to appear on the dashboard (identified by a 'bell') will be sent via Telegram.
+
+![Alerts Dashboard](img-docs/rmm-alerts-bells.jpg)
+
+The script consumes the alerts endpoint 'https://api.tactical.com/alerts/', where alerts marked "Include snoozed", "Include resolved", 1 day time and all severitys are filtered.
+
+![Alerts Dashboard](img-docs/rmm-alerts.jpg)
+
+Line 54 on telegram-trmm.py.
+```
+...
+    data = {
+        "resolvedFilter": True,
+        "snoozedFilter": True,
+        "timeFilter": 1,
+        "severityFilter": ["error", "warning", "info"]
+    }
+...
+```
+
+All configurations are carried out in the configScrips.ini file and logs are generated and stored in /var/log/trmm-telegram.
+
+This script will check for new alerts every 20 seconds (parameter updateinterval in the configScrips.ini file).
+
+File *sent_alerts.json* is used to control the IDs that are sent and already resolved, a type of database. Whenever an alert is generated in tactical, it is sent by Telegram and stored in 'sent', when this alert is resolved, the script arrives if this alert has already been sent, if it is still in sent, a recovery message is sent in telegram and it is moved to 'resolved' in sent_alerts.json
+
+For Housekeeping control, 100 alert IDs are stored in the *sent_alerts.json* file, this quantity can be configured in the 'max_alerts' parameter in configScrips.ini.
 
 # Requirements:
 
-<b>1 - </b> Tested on Debian 11, Debian 12 or Ubuntu 22.04 LTS<b>
+<b>1 - </b> Tested on Debian 11, Debian 12 or Ubuntu 22.04 LTS <br>
 <b>2 – </b> Have installed Python 3.9 (or higher)<br>
 <b>3 – </b> Be logged in as root<br>
 <b>4 – </b> Run the following commands<br>
@@ -88,9 +92,6 @@ Install the packages:
 <pre>cd /tmp ; wget https://raw.githubusercontent.com/bernardolankheet/trmm-telegram/main/install.sh -O install.sh ; sudo dos2unix install.sh ; sudo bash install.sh</pre>
 
 # Create Bot Token:
-<h3>
-Create Bot Token
-</h3>
 
 1. Search [BotFather](https://t.me/BotFather) on Telegram.
 2. Send /start to get started
@@ -99,25 +100,18 @@ Create Bot Token
 5. Then, you would get your Bot token. (this token you will use on bot_token parameter on configScrips.ini file)
 
 # Get Group-User Telegram ID
-<h3>
-Get Group-User Telegram ID
-</h3>
 
 This script is prepared to send notifications via User or Group, you can choose which one you want to use.
 
 If you use User:
 1. Search [Get ID bot](https://t.me/get_id_bot) on Telegram.
 2. Send /my_id to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
-3. 
 
 If you use Groups:
 1. Add [Get ID bot](https://t.me/get_id_bot) in your chat group.
 2. Send /my_id to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
 
 # Create API-Key Tactical
-<h3>
-Create API-Key Tactical
-</h3>
 
 1. Login on Tactical;
 2. Settings > Global Settings > API KEYS;
@@ -127,11 +121,9 @@ Create API-Key Tactical
 6. Enter an expiration period (not required);
 7. Copy the generated API Key. (this id you will use on alert_api_key parameter on configScrips.ini file)
 
+![Tactical API Token](img-docs/rmm-tapi-key.jpg)
 
 # Configure configScrips-ini
-<h3>
-Configure configScrips-ini
-</h3>
 
 ```
 nano /opt/trmm-telegram/configScrips.ini
@@ -166,9 +158,6 @@ user_group_telegram = 150157059
 ***Note: after changing the configScrips.ini file, the service is required.***
 
 # Manage Systemctl Service:
-<h3>
-Manage Systemctl Service:
-</h3>
 
 Manage service: 
 ```
@@ -192,3 +181,9 @@ Settings > [Automation Manager](https://docs.tacticalrmm.com/functions/automatio
 
 Configure your checks to Alerts Dashboard.
 ![Automation Manager](img-docs/rmm-alerts-policy.jpg)
+
+
+# Telegram Message
+
+This a final result.
+![Telegram Message](img-docs/telegram-message.jpg)
