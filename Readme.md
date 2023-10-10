@@ -104,13 +104,15 @@ Install the packages:
 This script is prepared to send notifications via User or Group, you can choose which one you want to use.
 
 If you use User:
-1. Search [Get ID bot](https://t.me/get_id_bot) on Telegram.
-2. Send /my_id to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
+1. Search [Get My ID](https://t.me/getmyid_bot) on Telegram.
+2. Send /start to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
+3. Used ID in 'Your user ID:'
 
 If you use Groups:
-1. Add [Get ID bot](https://t.me/get_id_bot) in your chat group.
-2. Send /my_id to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
-3. Add your bot in this group.
+1. Add [Get My IDt](https://t.me/getmyid_bot) in your chat group.
+2. Send /start to get your id. (this id you will use on user_group_telegram parameter on configScrips.ini file)
+3. Used ID in 'Current chat ID:'
+4. Remove bot your group.
 
 # Create API-Key Tactical
 
@@ -152,7 +154,7 @@ sent_alerts_file = /opt/trmm-telegram/sent_alerts.json
 
 # Telegram Bot Token, used https://t.me/BotFather
 bot_token = 181768159672:AnsHUYgdyioLIWOt_9R24G-c9lYuwwaVeEDPKo 
-# Telegram group/user ID to receive messages, used https://t.me/myidbot
+# Telegram group/user ID to receive messages, used https://t.me/getmyid_bot
 user_group_telegram = 150157059
 </pre>
 
