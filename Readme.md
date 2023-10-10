@@ -178,16 +178,14 @@ An easy way to select which alerts will be used for notification is to use Autom
 
 Settings > [Automation Manager](https://docs.tacticalrmm.com/functions/automation_policies/)
 
-
-![Automation Manager](img-docs/rmm-alerts-policy-manager.jpg)
+![Automation Manager](https://github.com/bernardolankheet/trmm-telegram/assets/59538185/388a316d-6271-413d-9c72-20dbcf563d6e)
 
 Configure your checks to Alerts Dashboard.
 
-![Automation Manager](img-docs/rmm-alerts-policy.jpg)
-
+![Automation Manager](https://github.com/bernardolankheet/trmm-telegram/assets/59538185/305777be-f7dd-4894-9cff-dff314399ed0)
 
 # Telegram Message
 
 This a final result.
 
-![Telegram Message](img-docs/telegram-message.jpg)
+![Telegram Message](https://github.com/bernardolankheet/trmm-telegram/assets/59538185/9946e8a5-d9fb-425f-9245-d4e5b0ca3094)
