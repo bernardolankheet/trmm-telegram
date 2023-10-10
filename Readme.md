@@ -1,3 +1,7 @@
+Simple integration for sending  [TacticalRMM](https://docs.tacticalrmm.com) alerts via Telegram.
+
+Autor: Bernardo Lankheet
+
 # Summary
 <ul>
 	<li>
